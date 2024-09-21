@@ -1,0 +1,62 @@
+<nav class="navbar navbar-inverse navbar-fixed-top color">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand"><i class="fa fa-users">Admin Panel</i></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'Home' %}"><i class="fa fa-home"> Home</i></a></li>
+            {% if user.is_authenticated %}
+                    <li><a href="{% url 'Profile' %}"><i class="fa fa-user"> Profile </i></a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-users"> Logout</i></a></li>
+           {% else %}
+                    <li><a href="{% url 'login' %}"><i class="fa fa-user"> Login</i></a></li>
+                    <li><a href="{% url 'Register' %}"><i class="fa fa-users"> Register</i></a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+</nav>
+
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top color">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">
+                <i class="fa fa-users"></i> Admin Panel
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="{% url 'Home' %}">
+                    <i class="fa fa-home"></i> Home
+                </a>
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'Profile' %}">
+                        <i class="fa fa-user"></i> Profile
+                    </a>
+                </li>
+                <li>
+                    <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link navbar-link" style="padding: 0; color: white; text-decoration: none;">
+                            <i class="fa fa-sign-out"></i> Logout
+                        </button>
+                    </form>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'login' %}">
+                        <i class="fa fa-user"></i> Login
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'Register' %}">
+                        <i class="fa fa-users"></i> Register
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav> -->
+
